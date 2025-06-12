@@ -3,7 +3,7 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: ./bg.png
+background: ./assets/bg.png
 # some information about your slides, markdown enabled
 title: LLM Literacy for Post-LLM Programmer
 info: |
@@ -58,7 +58,7 @@ transition: fade-out
 <div>
 
 <!-- TODO: Add a picture of yourself or a relevant avatar -->
-<img src="./me.jpeg" class="rounded-full mx-auto" style="width: 200px; height: 200px; object-fit: cover;" alt="Your Name">
+<img src="./assets/me.jpeg" class="rounded-full mx-auto" style="width: 200px; height: 200px; object-fit: cover;" alt="Your Name">
 
 <div class="mt-4 text-center">
   <h3 class="text-xl">Alireza Mohammadnejad</h3>
@@ -329,7 +329,7 @@ layout: two-cols
 
 ::right::
 
-![alt text](./image-4.png)
+![alt text](./assets/image-4.png)
 
 ---
 layout: two-cols
@@ -411,7 +411,7 @@ This is why building a <b>competitive</b> LLM from scratch is mostly for mega-co
 
 ###### borrowed from Julia Turc Youtube channel
 
-![alt text](./image.png)
+![alt text](./assets/image.png)
 
 ---
 
@@ -419,7 +419,7 @@ This is why building a <b>competitive</b> LLM from scratch is mostly for mega-co
 
 ## An example from Qwen 3
 
-![](./post-training.png)
+![](./assets/post-training.png)
 
 
 <!--
@@ -997,7 +997,7 @@ Connect with me:
 <br>
 <br>
 
-<img src="./qr-code.svg" class="mx-auto" style="width: 200px; height: 200px;" alt="QR Code">
+<img src="./assets/qr-code.svg" class="mx-auto" style="width: 200px; height: 200px;" alt="QR Code">
 
 </div>
 
