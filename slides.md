@@ -848,12 +848,20 @@ transition: fade-out
 </div>
 
 ---
+layout: center
+---
+
+# Moravec's paradox
+
+Why some stuff which are easy to us are hard to computers and things hard to us are easy to computers? 
+
+---
 layout: two-cols
 ---
 
 # The Dichotomy!
 
-- **Moravec's paradox, and Biology Architecture**: 
+- **Biology Architecture**: 
   - Humans and animals, have a lot information baked into their neural pathways
   - For example: A zebra can run a few minutes after birth!
   - There is surely not enough time and data to learn that level of muscle control from ground-up in that time!
@@ -867,23 +875,20 @@ layout: two-cols
 
 # Which Means
 
-<!-- # Morvac -->
-
 ### Humans 💪
 
-- Better motor skills
 - General intelligence (More insight on general patterns)
 - Agentic and online
 - Qualia and Sentience (AI hopefully doesn't)
+- Alot more efficent
 
 <br>
 
 ### LLM 🦾
 
-- Faster
+- Simpler and Faster
 - Not good in calculations (in compairson to humans and classic computing)
 - Less entangled with host machinary
-- Simpler architecture
 
 </div>
 
@@ -895,38 +900,37 @@ layout: two-cols
 
 - **AI‌ vs Huamns, How we **differ** in learning and memory?**
   - Human's vs LLM's Memory and LLM's duality of learning <!-- Training, vast, slow, costly, deep, vs In-context learning, fast, zero-shot, shallow, ephermal, cheap, e.g.: RAG ||| learning is basically intertwined with active memory , pre-learnt things by evolution, as mentioned before-->
-  - Humans superior online learning, sleeping is our online learning superpower? <!-- Abstract Fatal familial insomnia (FFI) is a familial prion disease linked to a mutation of the prion protein gene. Neuropsychological investigations in seven patients with FFI belonging to two different families showed that the main behavioral and neuropsychological features are (1) early impairment of attention and vigilance, (2) memory deficits, mainly of the working memory, (3) impairment of temporal ordering of events, and (4) a progressive dream-like state with neuropsychological and behavioral features of a confusional state. Neuropathologic examination of six patients showed prominent neuronal loss and -->
+  - Humans superior online learning, sleeping is our online learning superpower?<!-- Abstract Fatal familial insomnia (FFI) is a familial prion disease linked to a mutation of the prion protein gene. Neuropsychological investigations in seven patients with FFI belonging to two different families showed that the main behavioral and neuropsychological features are (1) early impairment of attention and vigilance, (2) memory deficits, mainly of the working memory, (3) impairment of temporal ordering of events, and (4) a progressive dream-like state with neuropsychological and behavioral features of a confusional state. Neuropathologic examination of six patients showed prominent neuronal loss and -->
 
 - **Efficent Online Learning** vs **Efficent In Context Training**
   - Human's Learn Mainly Online
 
-- **Long but Lossy Context ** vs **Accurate but Limited Context Learning/Recall **
+- **Long but Lossy Context** vs **Accurate but Limited Context Learning/Recall**
 
 ::right::
+
+<div class="pl-4 text-left">
 
 # Which Means
 
 ### Humans 💪
 
-- More unified memory sense
-- Better and Faster online parameter learner
-- No Context Limit (Seamless context management)
-- Better reflection 
-- More multimodal
+- Less **Confabulation** (جعل‌ خاطره)  <!-- - They can make stuff up *very confidently*. They are optimized to produce plausible text, not necessarily *true* text, why the word matter-->
+- More unified memory sense <!-- our short-term and long-term memory blend in better, they have static, and in context static memory, no short-term and long-term memory, to mimic this we need to add forgetting or note taking to models, current approachs like rag is like having a book-store and looking into them for the right thing fast -->
+- Better and Faster online parameter learner <!-- We actually change beyond context, models just change in context, a fresh context, and you get a fresh model, no internal knob changes even in chatgpt memory, its just text passed as preamble like the memento movie -->
+- No Hard Context Limit (Seamless context management) <!--   - Can only "remember" a certain amount of text (the context window). Getting MUCH better (e.g., Gemini 1.5M tokens, Claude 200k), but still a factor for very large tasks. Humans have smart context purge which LLMs currently lack -->
+- Better reflection
 
 <br>
 
 ### LLM 🦾
 
-- Super Vast Knowledge
-- Super Fast Reader
+- Super Vast Knowledge <!-- It take us over 2000 years to read what llms read to kick start themselves, but they dont learn them efficently/rigorously -->
+- Super Fast Reader <!-- on the right hardware they can fly, 1000tok/s, thats faster than fastest writer and readers even assuming languages with bad optimization like farsi -->
 - Better than average human in-context
+- Can code / pick style faster
 
-- **Context Length Limitations:**
-  - Can only "remember" a certain amount of text (the context window). Getting MUCH better (e.g., Gemini 1.5M tokens, Claude 200k), but still a factor for very large tasks. Humans have smart context purge which LLMs currently lack
-
-- **Hallucinations / Confabulation:**
-  - They can make stuff up *very confidently*. They are optimized to produce plausible text, not necessarily *true* text
+</div>
 
 ---
 layout: two-cols
@@ -938,7 +942,29 @@ layout: two-cols
   - Human are **by now** highly multi-modal compared to MLLM
   - LLM's only IO -aside from its hardware computation foodprint- is Text (or Media for Generative MLLMs)
   - Physical Actuators Make a HUGE Difference! <!--compare a person who needs to make a robot, send its PCB‌ for manufactoring or buy it off amazon to then get napkin while you just standup and take it, assuming you dont have accessibility-->
-  - How This Can Become AI's Greatest Strength! <!-- Zero cost copy, infinite limbs -->
+  - How This Can Become AI's Greatest Strength! <!-- Zero cost copy, infinite limbs, assuming low latency bus, also super duper dangerous -->
+
+::right::
+
+<div class="pl-4 text-left">
+
+# Which Means
+
+### Humans 💪
+
+- Better motor skills
+- More multimodal (Vision, Audition, Olfaction, Gustation, Tactition, Proprioception, Thermoception, Nociception)
+- Deeper integration with physical desires for survival (Hunger, Danger, Fear, ...)
+
+<br>
+
+### LLM 🦾
+
+- More modular
+- Less dependent to physical, whioch means agility and speed
+- Shallower integration with physical desires for survival (Hunger, Danger, Fear, ...)
+
+</div>
 
 ---
 layout: two-cols
@@ -949,11 +975,13 @@ layout: two-cols
 - **Agency, Survival, Mimicing, Thinking Steps**
   - Survive demands agency, mimicing doesn't!
   - The 2 camps: if it quacks like a duck, it is a duck?
-  - We are processing, always, LLM's currently (are forced to) play pingponging <!-- mention how its probably not inherent but artifact of lack of data and how it all started + safety>
+  - We are processing, always, LLM's currently (are forced to) play pingponging <!-- mention how its probably not inherent but artifact of lack of data and how it all started + safety -->
   - Clear vs Unclear Goal, Machinary and Seperation of Concern
   - A native cron service is up in our brain! <!-- AI can't schedule a thing to do! -->
 
 ::right::
+
+<div class="pl-4 text-left">
 
 # Which Means
 
@@ -961,57 +989,205 @@ layout: two-cols
 
 - Existential and Perpetual Continuation
 - More grounded, True world model
-‌- Less Hallucination (توهم) and Confabulation (جعل‌ خاطره)
-- 
+‌- Also, Less Hallucination (توهم) and Confabulation (جعل‌ خاطره)
+
+<br>
 
 ### LLM 🦾
 
 - Cheaper replication of knowledge and scaling
-- Easily sweepable for tasks
-- 
+- Easily swapable for tasks
+- More disposable
 
+</div>
+
+---
+layout: center
 ---
 
 # LLMs are NOT Silver Bullet
 
 They're incredibly powerful, but they're not magic. Think of them as brilliant, hardworking, and sometimes erratic, interns with great general-knowledge but not much of domain-specific experience, and they forget nearly everything the next day you visit them!
 
+---
+
+# Problem & Mitigation
+
 <v-clicks>
 
-- **Lack of True Grounding / World Model:**
-  - Don't *understand* concepts in a human way. It's sophisticated pattern matching.
-  - This leads to subtle (and sometimes not-so-subtle) errors in reasoning or common sense.
+<!-- we are not looking change architecture answer here, that will be a viable answer per each -->
 
-- **A Brain Needs Hands (and Eyes, and Ears...):**
-  - LLMs generate text. To *do* things in the real world (or digital world), they need to be connected to tools, APIs, databases. (This is where RAG and Agents come in).
+- **No native motory skills** $\Longrightarrow$ Go Big (svg drawing exam) - Auxilary models - Native movement tokens (e.g.: MolmoAct) - Math/Spline/Svg training/techniques for models (e.g.: xVal)
+
+<br>
+
+- **Few multimodal sensory variance (Vision, Audition, Olfaction, Gustation, Tactition, Proprioception, Thermoception, Nociception)** $\Longrightarrow$ Joint Embedding (Data collection) - Online encoder training - Layering Insight in Model (e.g.: Fine-tuning MMS Adapter Models for Multi-Lingual ASR)
+
+<br>
+
+- **Existential and Perpetual Continuation** $\Longrightarrow$ Agentic Loop - Memory - Fine-tune on continuous input models - Context extension techniques - Context
+
+<br>
+
+- **Confabulation and Lack of world grounding** $\Longrightarrow$ Fine-tuning (RLVR) on false recalls - RAG/External access - Verifier model/software - Voting (Cross model, Self-Consistency Voting, Attention-Based Voting) - Cognitive core extraction
 
 </v-clicks>
+
+---
+
+# Problem & Mitigation
+
+<v-clicks>
+
+- **Short active memory, not inferring long-term personalized insight or learning** $\Longrightarrow$ Memory - Personalized Quantization - Continual Learning (e.g.: RecLoRA - FedP²EFT - I-SHEEP - STeP - C-LoRA - Continual Learning via sparse memory finetuning (meta paper)) - 
+
+<br>
+
+- **No Hard Context Limit (Seamless context management)** $\Longrightarrow$ Infini-attention - StreamingLLM: Attention Sinks - ReAttention - EM-LLM: Episodic Memory
+
+<br>
+
+- **Better Reflection, General Intelligence, Lack of Strategy and Planning** $\Longrightarrow$ CoT - RLVR (Reinforcement Learning with Verifable Reward, High-entropy Minority Tokens branching) - GPRO (Group Relative Policy Optimization) - Deeper Beam Search - Test-driven thinking approaches - Goal-driven RLVRs with incremental rewards
+
+<br>
+
+- **Humans are more power efficent** $\Longrightarrow$ Sparsity - Quantization (bitnet, GGML, We see more later) - Distillation
+
+</v-clicks>
+
+---
+
+# Problem & Mitigation
+
+<v-clicks>
+
+- **Lack of purpose alignment** $\Longrightarrow$ Smart RL‌ based Fine-tuning tricks - More highquality SFT data
+
+<br>
+
+- **Deeper integration with physical desires for survival (Hunger, Danger, Fear, ...)** $\Longrightarrow$ Some RL and SFT Techniques (Please don't 🙂, learn something from movies)
+
+<br>
+
+- **Qualia and Sentience (AI hopefully doesn't)** $\Longrightarrow$ Thankfully, no one has a clue (Please don't 🙂, Again)
+
+<br>
+
+- **Special one: Explainability (XAI)** $\Longrightarrow$ Unlike other weaknesses this one is a feature we demand, not because it empowers it, rather because it empowers us when to pull the plug! (Research Safety, get Quantization and Alignment as bonus) $\Longrightarrow$ "Mapping the Mind of a Large Language Model" by Anthropic
+
+
+</v-clicks>
+
+---
+
+# Doubling Down!
+
+**There is also, fields which amplify AI current leads even further**
+
+<v-clicks>
+
+- **go faster**
+  - special hardware: Cerebras
+  - other architectures: diffusion LLMs 
+  - Agentic Systems with LLMs and SLMs
+- **scale better**
+  - Mixture of Experts (MoE)
+  - Virtual MoE fusion
+  - Model merging techniques
+- **Alot more**
+
+</v-clicks>
+
+---
+
+# Tool-calling
+
+**better tool calling capability and tooling** can mitigate all issues, and enhance all qualities, so I didn't list it per item, as it would have been member of nearly every item
+
+<v-clicks>
+
+- search access: less confabulation, more grounded, information cut-off issue which is related to lack of online and continous learning
+- browser-use: take real world action indepenet of humans, making them more agentic
+- RAG is basically some type of tool calling
+- Structured output + tooling = in app integrations
+
+</v-clicks>
+
+---
+layout: two-cols
+---
+
+# MCP
+
+<v-clicks>
+
+- What it is
+- What it isn't
+- Transport <!-- cli and http, has different modes of operation -->
+  - HTTP
+    - SSE
+  - stdio
+- Opportunities
+  - Clients
+  - Servers
+  - Markets (Smithery.ai)
+  - Enabled Models
+- Interesting stuff <!-- browser use, deepwiki -->
+
+</v-clicks>
+
+::right::
+
+<v-clicks>
+
+### MCP Snippet
+
+</v-clicks>
+
+<v-clicks>
+
+###### Client
+
+```python
+import asyncio
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+async def main():
+    async with stdio_client(StdioServerParameters("python", ["server.py"])) as (r, w):
+        async with ClientSession(r, w) as s:
+            await s.initialize()
+            print((await s.call_tool("datetime", {})).content[0].text)
+
+asyncio.run(main())
+```
+
+###### Server
+
+```python
+from mcp.server.fastmcp import FastMCP
+from datetime import datetime
+
+mcp = FastMCP("DateTime")
+
+@mcp.tool()
+def datetime():
+    return datetime.now().isoformat()
+
+mcp.run(transport="stdio")
+```
+
+</v-clicks>
+
 
 ---
 transition: fade-out
+layout: center
 ---
 
-# But, LLMs are NOT Silver Bullet
-
-<v-clicks>
-
-- **Many Models Does Not Support Multi-Modality Natively**
-  - There are tricks used like OCR, for models like deepseek to read pdf, images, ... but understanding all models often comes with a hefty cost on model intelligence, or cost of development, or both!
-
-- **Not Strategic By Default:**
-  - They excel at executing well-defined tasks given in the prompt. Complex, multi-step problem-solving requires careful prompting or orchestration (e.g., agentic frameworks).
-
-- **Human Expertise is Still King (or at least, Regent):**
-  - **By the time I'm typing this** LLMs are **amplifiers**. They amplify good input and expertise. They also amplify bad input or lack of domain knowledge.
-  - Critical thinking, validation, and domain knowledge from humans are ESSENTIAL.
-
-</v-clicks>
-
-<v-clicks>
-
-*Key takeaway:* LLMs are a *component*, not a whole solution. They need to be part of a larger system, often with human oversight.
-
-</v-clicks>
+# Key points
+1. SLMs and even LLMs are a component of solutions, even if they are major components, you need to engineer them into a good framework, or make frameworks so they can make better frameworks for themselves (toward singularity)
+2. Human expertise is ~~king~~ regent at the moment
 
 ---
 transition: fade-out
@@ -1024,7 +1200,7 @@ This is a common point of confusion, specially for non-technical people. Let's c
 <v-clicks>
 
 - **Model:** The actual AI, the "brain." It's the result of the training process.
-    - *Examples:* `GPT-4 Turbo`, `Claude 4 Opus`, `Gemini 2.5 Flash`, `o4-mini` `Llama 3 70B`.
+    - *Examples:* `GPT-4 Turbo`, `Claude 4.1 Opus`, `Kimi K2`, `Llama 4 Scout`.
     - These are specific versions with defined capabilities and architectures.
 
 - **Provider (or Product/Service):** The company or platform that hosts the model(s) and provides access, often via an API or a user interface.
@@ -1129,6 +1305,62 @@ Where $n$ is Vocab size and $T$ is Temperature
 <SamplingCard />
 
 ---
+layout: center
+---
+
+<h1> <b>Lets go</b> <GradientText>Vibing!</GradientText></h1>
+
+"Vibecoding" is a term coined by Andrej Karpathy
+
+---
+
+# Know the Labs
+
+<AILabsGrid />
+
+---
+layout: default
+---
+
+# Categories (My Take)
+
+- General Chat and Specialized Chat <!-- Gemini, Google AI Studio, Chatgpt, Claude, Grok, Z (Zhipi) AI, Le Chat, Kimi AI, baidu, minimax ai, Deepseek, cohere, Ai2 Playground, liquid labs, microsoft copilot, HuggingChat, Cerebras Inference, groq, morphic, lumo by proton, duck.ai, lmarena, LLMChat.co, Github copilot, pi, poe, diffychat, librechat, free chat llm, giz.ai, lobohub -->
+- Useless apps of chat <!-- if computer-use comes into play there might be a point -->
+- Browser <!-- Comet, Atlas, ... -->
+- Note <!-- Notion, NotebookLM , ...-->
+- Iranian General Chat <!-- Hooshang, Metis,  -->
+- AI Search Engine <!-- chatgpt, perplexity, you.com, phind.com -->
+- Agents <!-- Kimi OK‌ Computer, manus, genspark -->
+- Vibe in CLI
+  - model/provider centeric <!-- (Auggie, Rovo, Qwen, Gemini, Github) (Codex, Claude, Kimi, Grok) -->
+  - model/provider agnostic <!-- (Crush, Mods, Aider, OpenCode, Goose, agenticSeek) -->
+
+---
+
+# Categories (My Take)
+
+- Vibe Studio
+  - front-end/designer web development <!-- zoer, anything, bolt.new, trickle AI, create.xyz, perplexity lab, lovable, Deepsite v2 (hfspace), lmarena, framer, same, groq appgen -->
+  - fullstack web development <!-- base44 -->
+  - mobile development <!-- dreamflow (flutter), rork (expo + react native) -->
+  - Everything <!-- firebase studio -->
+- Async Agent <!-- Devin, Jules -->
+- AIDE
+  - based on vscode <!-- (kiro, trae, windsurf, void, cursor) -->
+  - not based on vscode <!-- (zed) -->
+- VSCode Extension <!-- (Continue AI, Augment Code, Kilo Code, Copilot, Cline, Roo Code, Blackbox, Lingma (qwen), windsurf/cursor/..., cerebras) -->
+- Offline Inference, Agent and Unifier <!-- ollama, msty, lm-studio, cherry studio --> <!-- g4f  --> <!-- open-webui --> <!-- Jan, OpenHands -->
+- Github App <!-- Code Rabbits, ... -->
+- Vibe Service <!-- gitingest.com, into.md, vibecopy extension -->
+
+---
+layout: center
+---
+
+<h1> <b>Enough</b> <GradientText>Vibing!</GradientText></h1>
+
+---
+
 
 # Quantization!
 
@@ -1298,27 +1530,6 @@ layout: center
 
 ---
 
-# Vibecode!
-
-- Andrej Karpathy
-- IDEs
-  - Cursor (VSCode Fork)
-  - Trae (VSCode Fork)
-  - Windsurf (VSCode Fork)
-  - Void (VSCode Fork)
-- Extensions (for VSCode)
-  - Github Copilot
-  - RooCode
-  - Augment
-  - Cline
-  - Blackbox
-  - Lingma
-  - Trae, Windsurf plugins
-- Vibe Studios!
-  - Bolt.new
-  - Lovable
-- Github App
-  - Code Rabbits
 
 ---
 transition: fade-out
