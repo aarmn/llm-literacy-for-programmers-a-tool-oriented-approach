@@ -1,4 +1,5 @@
 {
     "slidev.preview-sync": true,
-    "slidev.port": 3030
+    "slidev.port": 3030,
+    "kiroAgent.configureMCP": "Disabled"
 }

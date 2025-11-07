@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Labs</title>
+    <style>
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+                BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            --radius-lg: 12px;
+            --radius-base: 8px;
+
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+                0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+                0 4px 6px -2px rgba(0, 0, 0, 0.02);
+
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-primary-active: var(--color-teal-800);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+            }
+        }
+
+        @font-face {
+            font-family: 'FKGroteskNeue';
+            src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1428 100%);
+            color: var(--color-text);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: var(--font-weight-bold);
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: var(--letter-spacing-tight);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .subtitle {
+            font-size: var(--font-size-xl);
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: var(--font-weight-normal);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            perspective: 1000px;
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: box-shadow 0.35s cubic-bezier(0.18, 0.85, 0.23, 1), border-color 0.35s cubic-bezier(0.18, 0.85, 0.23, 1), transform 0.36s cubic-bezier(0.18, 0.85, 0.23, 1);
+            transform-style: preserve-3d;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            will-change: auto;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card[data-rect] {
+            aspect-ratio: 8 / 3;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s var(--ease-standard);
+            pointer-events: none;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            will-change: transform;
+            transform: scale(1.055) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+            border-color: rgba(255, 255, 255, 0.18);
+            z-index: 15;
+            box-shadow: 0 6px 48px 3px rgba(255, 255, 255, 0.045), 0 0 90px 14px var(--glow-hue, transparent);
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-container {
+            width: 100%;
+            height: 80%;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            position: relative;
+            transition: all 0.35s cubic-bezier(0.18, 0.85, 0.23, 1);
+            will-change: auto;
+        }
+
+        .card[data-rect] .logo-container {
+            height: 70%;
+            padding: 0 6%;
+        }
+
+        .card:hover .logo-container {
+            will-change: transform;
+            transform: scale(0.95);
+            gap: 20px;
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0.97) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.16));
+            transition: all 0.36s cubic-bezier(0.18, 0.85, 0.23, 1);
+            will-change: auto;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .card[data-rect] .logo {
+            width: 94%;
+            height: 72%;
+        }
+
+        .card:hover .logo {
+            filter: brightness(1.11) drop-shadow(0 6px 24px rgba(0, 0, 0, 0.17));
+            width: 50%;
+        }
+
+        .card:hover .logo.main-logo {
+            width: 45%;
+        }
+
+        .backing-logo {
+            width: 0%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0.92) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12));
+            transition: all 0.36s cubic-bezier(0.18, 0.85, 0.23, 1);
+            opacity: 0;
+            flex-shrink: 0;
+        }
+
+        .card:hover .backing-logo {
+            width: 45%;
+            opacity: 1;
+            filter: brightness(1.08) drop-shadow(0 4px 16px rgba(0, 0, 0, 0.14));
+        }
+
+        .backing-separator {
+            width: 0;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.15);
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.18, 0.85, 0.23, 1);
+            border-radius: 2px;
+        }
+
+        .card:hover .backing-separator {
+            width: 1px;
+            opacity: 1;
+        }
+
+        .company-name {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            padding: 6px 14px;
+            background: rgba(14, 20, 36, 0.92);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 0.01em;
+            opacity: 0;
+            transition: opacity 0.27s cubic-bezier(0.18, 0.85, 0.23, 1), transform 0.33s cubic-bezier(0.18, 0.85, 0.23, 1);
+            pointer-events: none;
+            border-radius: 7px;
+            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+            backdrop-filter: blur(11px);
+            z-index: 12;
+            will-change: auto;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card:hover .company-name {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0px);
+        }
+
+        .glow {
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: var(--radius-lg);
+            opacity: 0;
+            transition: opacity 0.5s var(--ease-standard);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .card:hover .glow {
+            opacity: 0.72;
+            filter: blur(32px);
+        }
+
+        .card--american {
+            border-color: rgba(74, 158, 255, 0.15);
+        }
+
+        .card--american:hover {
+            border-color: rgba(74, 158, 255, 0.42);
+            --glow-hue: rgba(74, 158, 255, 0.28);
+        }
+
+        .card--american::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-lg);
+            background: radial-gradient(circle at center, rgba(74, 158, 255, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s var(--ease-standard);
+            pointer-events: none;
+        }
+
+        .card--american:hover::after {
+            opacity: 1;
+        }
+
+        .card--european {
+            border-color: rgba(153, 153, 153, 0.15);
+        }
+
+        .card--european:hover {
+            border-color: rgba(153, 153, 153, 0.42);
+            --glow-hue: rgba(136, 153, 170, 0.24);
+        }
+
+        .card--european::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-lg);
+            background: radial-gradient(circle at center, rgba(153, 153, 153, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s var(--ease-standard);
+            pointer-events: none;
+        }
+
+        .card--european:hover::after {
+            opacity: 1;
+        }
+
+        .card--international {
+            border-color: rgba(255, 107, 107, 0.15);
+        }
+
+        .card--international:hover {
+            border-color: rgba(255, 107, 107, 0.42);
+            --glow-hue: rgba(255, 71, 87, 0.28);
+        }
+
+        .card--international::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-lg);
+            background: radial-gradient(circle at center, rgba(255, 107, 107, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s var(--ease-standard);
+            pointer-events: none;
+        }
+
+        .card--international:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.2s; }
+        .card:nth-child(5) { animation-delay: 0.25s; }
+        .card:nth-child(6) { animation-delay: 0.3s; }
+        .card:nth-child(7) { animation-delay: 0.35s; }
+        .card:nth-child(8) { animation-delay: 0.4s; }
+        .card:nth-child(9) { animation-delay: 0.45s; }
+        .card:nth-child(10) { animation-delay: 0.5s; }
+        .card:nth-child(11) { animation-delay: 0.55s; }
+        .card:nth-child(12) { animation-delay: 0.6s; }
+        .card:nth-child(13) { animation-delay: 0.65s; }
+        .card:nth-child(14) { animation-delay: 0.7s; }
+        .card:nth-child(15) { animation-delay: 0.75s; }
+        .card:nth-child(16) { animation-delay: 0.8s; }
+        .card:nth-child(17) { animation-delay: 0.85s; }
+        .card:nth-child(18) { animation-delay: 0.9s; }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 16px;
+            }
+            header {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Research Labs</h1>
+            <p class="subtitle">Exploring the Future of Artificial Intelligence</p>
+        </header>
+        <div class="grid" id="labsGrid"></div>
+    </div>
+
+    <script>
+        // American Labs (Blue Hue)
+        const americanLabs = [
+            {
+                name: "ChatGPT",
+                color: "#4a9eff",
+                region: "american",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1762508698/pplx_project_search_images/d9f20e5eea431c68b44a27c9c2c4603480d5a802.png",
+                backedBy: "OpenAI",
+                backingLogo: "https://pplx-res.cloudinary.com/image/upload/v1762508698/pplx_project_search_images/d9f20e5eea431c68b44a27c9c2c4603480d5a802.png"
+            },
+            {
+                name: "Google DeepMind",
+                color: "#4a9eff",
+                region: "american",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1754743738/pplx_project_search_images/67580f662af73026d54fe0872aea32ec707b9d3d.png",
+                backedBy: "Google",
+                backingLogo: "https://crystalpng.com/wp-content/uploads/2025/05/google-logo.png"
+            },
+            {
+                name: "Microsoft Copilot",
+                color: "#2e7fd1",
+                region: "american",
+                logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/1.74.0/files/dark/copilot-color.png",
+                backedBy: "Microsoft",
+                backingLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png?20210729021049"
+            },
+            {
+                name: "Meta AI",
+                color: "#4a9eff",
+                region: "american",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1756113120/pplx_project_search_images/746fe05c71c461aa613685d94addf6845b2ea309.png",
+                backedBy: "Meta",
+                backingLogo: "https://pngimg.com/uploads/meta/meta_PNG4.png"
+            },
+            {
+                name: "xAI",
+                color: "#2e7fd1",
+                region: "american",
+                logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/1.74.0/files/dark/xai.png",
+                backedBy: "Elon Musk",
+                backingLogo: "https://pplx-res.cloudinary.com/image/upload/v1756421348/pplx_project_search_images/650cde82a8e5c180eb793b9a6aee59159e123f6c.png"
+            },
+            {
+                name: "Claude",
+                color: "#4a9eff",
+                region: "american",
+                logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/1.74.0/files/dark/claude-color.png",
+                backedBy: "Anthropic",
+                backingLogo: "https://registry.npmmirror.com/@lobehub/icons-static-png/1.74.0/files/dark/anthropic.png"
+            },
+            {
+                name: "AI2",
+                color: "#4a9eff",
+                region: "american",
+                logo: "https://image2url.com/images/1762509181328-95de1232-30aa-4bba-bce0-c61be2a60c5f.png",
+                backedBy: "Independent",
+                backingLogo: ""
+            },
+            {
+                name: "Perplexity",
+                color: "#4a9eff",
+                region: "american",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1754731592/pplx_project_search_images/0680dbae45d6e292bf6eb3ca24d102ef3d6a3835.png",
+                backedBy: "Independent",
+                backingLogo: ""
+            },
+            {
+                name: "Manus AI",
+                color: "#4a9eff",
+                region: "american",
+                logo: "https://ai-bot.cn/wp-content/uploads/2025/03/Manus-logo.png",
+                backedBy: "Independent",
+                backingLogo: "",
+                cleanHand: true
+            }
+        ];
+
+        // European Labs (Gray/Neutral Hue)
+        const europeanLabs = [
+            {
+                name: "Mistral AI",
+                color: "#999999",
+                region: "european",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1755001854/pplx_project_search_images/d8b1e069293cff1fab1088d4ee17e6f08309a9e6.png",
+                backedBy: "Independent",
+                backingLogo: ""
+            }
+        ];
+
+        // International/Chinese Labs (Red Hue)
+        const internationalLabs = [
+            {
+                name: "Inclusion AI",
+                color: "#ff4757",
+                region: "international",
+                logo: "https://cdn-avatars.huggingface.co/v1/production/uploads/662e1f9da266499277937d33/fyKuazRifqiaIO34xrhhm.jpeg",
+                backedBy: "Ant Group",
+                backingLogo: "https://pplx-res.cloudinary.com/image/upload/v1762476362/pplx_project_search_images/86003706e044641190bd862e4753ad8dd55d624b.png"
+            },
+            {
+                name: "Qwen",
+                color: "#ff6b6b",
+                region: "international",
+                logo: "https://cdn.brandfetch.io/idoXsIxRHZ/w/150/h/150/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1762207416205",
+                backedBy: "Alibaba",
+                backingLogo: "https://alibabamadeeasy.com.au/wp-content/uploads/2020/07/alibaba-cloud-logo.png"
+            },
+            {
+                name: "DeepSeek",
+                color: "#ff4757",
+                region: "international",
+                logo: "https://freepnglogo.com/images/all_img/deep-seek-logo-whale-1ced.png",
+                backedBy: "High-Flyer",
+                backingLogo: "https://www.marefa.org/w/images/b/bd/High-Flyer.png"
+            },
+            {
+                name: "Z.ai",
+                color: "#ff6b6b",
+                region: "international",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1762476375/pplx_project_search_images/6479736d105969cdb31a61d18bd0f6a4c34ee9ad.png",
+                backedBy: "Independent",
+                backingLogo: ""
+            },
+            {
+                name: "Moonshot AI",
+                color: "#ff4757",
+                region: "international",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1762476858/pplx_project_search_images/a21008e3eb42351d480ce0dc0b218e3741a2761f.png",
+                backedBy: "Independent",
+                backingLogo: ""
+            },
+            {
+                name: "ERNIE (Baidu)",
+                color: "#ff6b6b",
+                region: "international",
+                logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/1.74.0/files/dark/wenxin-color.png",
+                backedBy: "Baidu",
+                backingLogo: "https://companieslogo.com/img/orig/BIDU-4322f316.png?t=1654487760"
+            },
+            {
+                name: "ByteDance",
+                color: "#ff4757",
+                region: "international",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1762476116/pplx_project_search_images/2df8acadd95a7b8b23c4ec61ffb965f2c9ea8a19.png",
+                backedBy: "Independent",
+                backingLogo: ""
+            },
+            {
+                name: "Tencent (Hunyuan)",
+                color: "#ff6b6b",
+                region: "international",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1757386727/pplx_project_search_images/ece5db8debf1988f25bdba67b3af03d02df02f90.png",
+                backedBy: "Tencent",
+                backingLogo: "https://pplx-res.cloudinary.com/image/upload/v1762475394/pplx_project_search_images/5a50d793bc9dec3b482950a3377ac9385d3f3fdc.png"
+            },
+            {
+                name: "MiniMax",
+                color: "#ff4757",
+                region: "international",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1757386740/pplx_project_search_images/182bb59e3078bc906831f5f461dfda78a2f44a82.png",
+                backedBy: "Independent",
+                backingLogo: ""
+            },
+            {
+                name: "StepFun",
+                color: "#ff6b6b",
+                region: "international",
+                logo: "https://pplx-res.cloudinary.com/image/upload/v1757386740/pplx_project_search_images/963a886cfacfcc30a6f8f9461454e17e3a28557d.png",
+                backedBy: "Independent",
+                backingLogo: ""
+            }
+        ];
+
+        const aiLabs = [...americanLabs, ...europeanLabs, ...internationalLabs];
+
+        // Throttle function for pointermove
+        function throttle(callback, limit) {
+            let waiting = false;
+            return function() {
+                if (!waiting) {
+                    callback.apply(this, arguments);
+                    waiting = true;
+                    setTimeout(function() {
+                        waiting = false;
+                    }, limit);
+                }
+            };
+        }
+
+        const grid = document.getElementById('labsGrid');
+
+        aiLabs.forEach((lab, index) => {
+            const card = document.createElement('div');
+            const isRect = lab.isRectangular;
+            card.className = `card card--${lab.region}`;
+            if (isRect) card.setAttribute('data-rect', 'rect');
+
+            const backingLogoHTML = lab.backingLogo ? `
+                <div class="backing-separator"></div>
+                <img src="${lab.backingLogo}" alt="${lab.backedBy}" class="backing-logo">
+            ` : '';
+
+            const labelText = lab.backingLogo ? `${lab.name} &nbsp;→&nbsp; ${lab.backedBy}` : lab.name;
+            const logoStyle = '';
+
+            card.innerHTML = `
+                <div class="glow" style="box-shadow: 0 0 44px 5px ${lab.color}; --glow-hue: ${lab.color};"></div>
+                <div class="card-inner">
+                    <div class="logo-container">
+                        <img src="${lab.logo}" alt="${lab.name}" class="logo main-logo" style="${logoStyle}">
+                        ${backingLogoHTML}
+                    </div>
+                    <div class="company-name">${labelText}</div>
+                </div>
+            `;
+
+            let animating = false;
+            card.addEventListener('pointermove', throttle(function(e) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                // Gentle tilt only (single transform)
+                const tiltX = ((y - centerY) / centerY) * 8;
+                const tiltY = ((centerX - x) / centerX) * 8;
+                card.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
+                card.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
+                card.style.willChange = 'transform';
+            }, 18));
+            card.addEventListener('pointerenter', () => {
+                card.style.setProperty('--tilt-x', '0deg');
+                card.style.setProperty('--tilt-y', '0deg');
+                card.style.willChange = 'transform';
+            });
+            card.addEventListener('pointerleave', () => {
+                card.style.setProperty('--tilt-x', '0deg');
+                card.style.setProperty('--tilt-y', '0deg');
+                setTimeout(() => {
+                    card.style.willChange = 'auto';
+                }, 400);
+            });
+
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
