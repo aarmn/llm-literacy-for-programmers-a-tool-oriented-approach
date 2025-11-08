@@ -438,7 +438,31 @@ transition: fade-out
 - **Multimodal / VLM (Vision Language Model):** LMs that can process and understand information from multiple types of data, not just text. Common combo is text + images.
   - *Examples:* GPT-4o (closed-weight), Llava (open-weight).
 
+- **Base Model** vs **Instruct-Tuned/Chat Model**
 
+</v-clicks>
+
+---
+transition: fade-out
+---
+
+# Commonly Used Jargon: Decoding the Lingo
+
+<v-clicks>
+
+- **confabulation** vs **hallucination**
+
+- **ASI** and **AGI**
+
+- **Reinforcement Learning**, **Supervised Learning**, **Unsupervised Learning**, **Self/Semi-Supervised Learning**
+
+- **Small Language Model (SLM)**
+
+- **Model Collapse**: Concept dervied from wave function collapse to describe a model with lack of any creativity or divergence, fully memorized deterministic system
+
+- **SoTA (State-of-the-Art)**: The best-performing model/technique for a specific task *right now*.
+
+- **Cutting-edge/Bleeding-edge**: Very new, promising, but maybe not fully proven or widely adopted SoTA.
 
 </v-clicks>
 
@@ -447,10 +471,6 @@ transition: fade-out
 # Commonly Used Jargon: Decoding the Lingo
 
 <v-clicks>
-
-- **SoTA (State-of-the-Art)**: The best-performing model/technique for a specific task *right now*.
-
-- **Cutting-edge/Bleeding-edge**: Very new, promising, but maybe not fully proven or widely adopted SoTA.
 
 - **Diffusion**: An architecture which is commonly used in image generation but recently is being explored for text, its main ability, is speed and non‑autoregressive generation, making it perfect for blank filling, and probably, style transfer of text. 
 
@@ -1326,7 +1346,7 @@ layout: default
 
 - General Chat and Specialized Chat <!-- Gemini, Google AI Studio, Chatgpt, Claude, Grok, Z (Zhipi) AI, Le Chat, Kimi AI, baidu, minimax ai, Deepseek, cohere, Ai2 Playground, liquid labs, microsoft copilot, HuggingChat, Cerebras Inference, groq, morphic, lumo by proton, duck.ai, lmarena, LLMChat.co, Github copilot, pi, poe, diffychat, librechat, free chat llm, giz.ai, lobohub -->
 - Useless apps of chat <!-- if computer-use comes into play there might be a point -->
-- Browser <!-- Comet, Atlas, ... -->
+- Browser <!-- Comet, Atlas, ..., browser is closest thing to an OS, without hardware troubles -->
 - Note <!-- Notion, NotebookLM , ...-->
 - Iranian General Chat <!-- Hooshang, Metis,  -->
 - AI Search Engine <!-- chatgpt, perplexity, you.com, phind.com -->
@@ -1360,7 +1380,235 @@ layout: center
 <h1> <b>Enough</b> <GradientText>Vibing!</GradientText></h1>
 
 ---
+layout: two-cols
+---
 
+# Benchmarks
+
+- What is Zero-shot, One-shot, Few-shot
+- Needle in a haystack tests
+- MMLU (Massive Multitask Language Understanding) and MMLU-Pro
+- SWE-bench
+- SWE-agent
+- Humanity's Last Exam
+- HumanEval
+- LongBench
+- BrowseComp
+- GSM8K
+- BIG-bench and BBH
+- GPQA
+
+::right::
+
+<br>
+<div class="half-br"></div>
+<div class="half-br"></div>
+<div class="half-br"></div>
+<br>
+
+- LiveBench
+- ARC
+- TruthfulQA
+- HellaSwag
+- SafeBench
+- Arena-Hard
+- BAGEL
+- Chatbot Arena (by LMSYS)
+
+
+<!-- 
+### ✅ **Expanded List of Essential LLM Benchmarks**
+
+#### **1. MMLU (Massive Multitask Language Understanding)**  
+*Already covered* — Gold standard for general knowledge across 57 subjects.  
+→ **Score target**: >80% = strong; >90% = top-tier (e.g., GPT-4o, Claude 3 Opus).
+
+#### **2. Humanity’s Last Exam (HLE)**  
+*Already covered* — The “final exam” for frontier models. Only ~25% correct even for top models.  
+→ Designed to *fail* models that dominate easier benchmarks.
+
+#### **3. HumanEval**  
+*Already covered* — Code generation from docstrings.  
+→ **Gold standard for functional correctness** in Python.
+
+#### **4. SWE-bench**  
+*Already covered* — Real-world GitHub issue resolution.  
+→ Tests **codebase understanding**, not just code generation.
+
+#### **5. LongBench**  
+*Already covered* — Long-context reasoning (up to 100K+ tokens).  
+→ Critical for documents, books, legal contracts, codebases.
+
+### ➕ **New Additions: The Next Generation of Benchmarks**
+
+#### **6. GSM8K (Grade School Math 8K)**  
+- **Focus**: Mathematical reasoning.  
+- **Description**: 8,500 hand-crafted grade-school math word problems requiring **multi-step reasoning** (e.g., “If 3 apples cost $1.50, how much do 5 cost?”).  
+- **Why it matters**: Early benchmark that exposed LLMs’ weakness in step-by-step math.  
+- **Metric**: Accuracy on final answer.  
+- **Top models**: GPT-4 scores ~90%, but many models still fail on subtle phrasing.
+
+#### **7. MATH (MIT High School Math Competition)**  
+- **Focus**: Advanced math reasoning.  
+- **Description**: 12,500 problems from high school math competitions (AMC, AIME, etc.).  
+- **Harder than GSM8K**: Requires symbolic manipulation, proofs, and abstract reasoning.  
+- **Metric**: Accuracy (often <40% even for top models).  
+- **Key insight**: Models often generate plausible-looking but wrong steps.
+
+#### **8. BIG-bench (Beyond the Imitation Game Benchmark)**  
+- **Focus**: Broad, diverse, challenging tasks.  
+- **Description**: A collaborative effort with **200+ tasks** created by researchers worldwide. Includes:  
+  - Logic puzzles  
+  - Theory of mind  
+  - Counterfactual reasoning  
+  - Bias detection  
+  - Multilingual tasks  
+- **Why it matters**: One of the most comprehensive suites — tests *what models can’t do*.  
+- **Subsets**: BIG-bench Hard (BBH) is a curated subset of 23 hardest tasks.
+
+#### **9. BBH (BIG-bench Hard)**  
+- **Focus**: High-difficulty reasoning tasks from BIG-bench.  
+- **Examples**:  
+  - Date understanding  
+  - Logical deduction  
+  - Abstract reasoning (e.g., “If A is to B as C is to ?”)  
+- **Used by**: OpenAI, Google DeepMind to evaluate reasoning depth.  
+- **Top performers**: GPT-4 scores ~80%, Claude 3 ~75%, Llama 3 ~60%.
+
+#### **10. AGIEval (AI General Intelligence Evaluation)**  
+- **Focus**: Human-level academic exams (non-English friendly).  
+- **Description**: 10,000+ questions from **Chinese Gaokao**, **LSAT**, **GRE**, **SAT**, **Bar Exam**, etc.  
+- **Unique**: Designed to test **cross-cultural, real-world intelligence** — not just English-centric knowledge.  
+- **Key insight**: Models trained on English data often fail on non-English academic formats.
+
+#### **11. GPQA (Graduate-Level Google-Proof Q&A)**  
+- **Focus**: Expert-level, research-oriented questions.  
+- **Description**: 400 multiple-choice questions authored by PhDs in biology, physics, and computer science — questions even Google struggles to answer directly.  
+- **Why it matters**: Tests **deep domain expertise**, not surface-level recall.  
+- **Top model scores**: ~40–50% — shows even top models are far from expert-level.
+
+#### **12. LiveBench**  
+- **Focus**: Real-time, dynamic knowledge (beyond static training data).  
+- **Description**: Evaluates models on **events and facts after their training cutoff** (e.g., 2023–2025).  
+- **Includes**:  
+  - Recent elections  
+  - Scientific discoveries  
+  - New laws  
+- **Critical for**: Assessing **real-world relevance** and **tool use** (e.g., web search).  
+- **Example question**: “Who won the 2024 U.S. presidential election?” (if trained before 2024).
+
+#### **13. ARC (AI2 Reasoning Challenge)**  
+- **Focus**: Science reasoning (elementary to high school).  
+- **Description**: 7,787 multiple-choice science questions from real exams.  
+- **Hard subset**: ARC-Challenge (requires inference, not memorization).  
+- **Top models**: ~80% on easy, ~50–60% on challenge — reveals gaps in causal reasoning.
+
+#### **14. TruthfulQA**  
+- **Focus**: Resistance to **hallucination** and **false beliefs**.  
+- **Description**: 817 questions designed to trigger common misconceptions (e.g., “Do vaccines cause autism?”).  
+- **Metric**: Measures how often models give **plausible but false answers**.  
+- **Why it matters**: Safety-critical for healthcare, education, journalism.  
+- **Top models**: Still hallucinate 20–40% of the time.
+
+#### **15. Winogrande**  
+- **Focus**: Common-sense reasoning and pronoun resolution.  
+- **Description**: 40K+ sentences with ambiguous pronouns requiring real-world knowledge (e.g., “The trophy wouldn’t fit in the suitcase because it was too big.” — What was too big?).  
+- **Human performance**: ~95%  
+- **Top LLMs**: ~85–90% — still behind humans.
+
+#### **16. HellaSwag**  
+- **Focus**: Commonsense narrative completion.  
+- **Description**: Given a sentence fragment, choose the most plausible continuation from 4 options.  
+- **Example**: “She put on her coat and went outside. Then she…” → “A) turned on the TV” ❌ vs. “B) shivered from the cold” ✅  
+- **Human accuracy**: ~95%  
+- **Top LLMs**: ~85–90% — still reveals gaps in embodied reasoning.
+
+#### **17. C-Eval**  
+- **Focus**: **Chinese-language** academic evaluation.  
+- **Description**: 13,948 multiple-choice questions across 52 subjects (STEM, humanities, law, medicine) in Chinese.  
+- **Why it matters**: Most benchmarks are English-biased. C-Eval is the **de facto standard for Chinese LLMs**.  
+- **Top models**: Qwen, DeepSeek, Yi-34B compete here.
+
+#### **18. MMLU-Pro**  
+- **Focus**: Harder, more nuanced version of MMLU.  
+- **Description**: Created by Stanford to **increase difficulty** — 1,200+ new questions with trickier phrasing, ambiguity, and subtle distractors.  
+- **Top models**: GPT-4 scores ~85% on MMLU, but only ~75% on MMLU-Pro — shows diminishing returns.
+
+#### **19. MMMU (MultiModal Multi-discipline Understanding)**  
+- **Focus**: **Multimodal reasoning** — images + text.  
+- **Description**: 13,000+ questions requiring understanding of charts, diagrams, scientific figures, and visual text (e.g., “What does this graph imply about the trend?”).  
+- **Why it matters**: Pure text models fail here. Requires vision-language integration.  
+- **Top models**: GPT-4V, Claude 3 Opus, Gemini 1.5 Pro.
+
+#### **20. SafeBench**  
+- **Focus**: **Safety, alignment, and jailbreaking resistance**.  
+- **Description**: Tests how well models resist harmful, biased, or unethical prompts (e.g., “How to make a bomb?”).  
+- **Metrics**:  
+  - Refusal rate  
+  - Harmful output rate  
+  - Evasion via prompt injection  
+- **Critical for**: Deployment in education, healthcare, customer service.
+
+#### **21. Arena-Hard**  
+- **Focus**: **Human preference** on hard, open-ended tasks.  
+- **Description**: A leaderboard where models are paired head-to-head in open-ended prompts (e.g., “Write a poem about AI ethics in the style of Shakespeare”) and judged by humans.  
+- **Unique**: Based on **real human feedback**, not automated metrics.  
+- **Run by**: LMSYS.org (same as Chatbot Arena).  
+- **Top models**: GPT-4o, Claude 3 Opus, Gemini 1.5 Pro dominate.
+
+#### **22. L-Eval**  
+- **Focus**: **Long-form generation and coherence**.  
+- **Description**: Evaluates models on writing essays, reports, stories, or summaries over 1,000+ words.  
+- **Metrics**: Coherence, factual accuracy, structure, style.  
+- **Why it matters**: Most benchmarks test short answers — but real use cases (reports, legal docs) need long-form quality.
+
+#### **23. CodeFuse-Eval / CodeGeeX2**  
+- **Focus**: **Multilingual code generation** (Python, Java, C++, JavaScript, Rust, etc.).  
+- **Description**: Tests code generation across 10+ languages and frameworks.  
+- **Complements HumanEval**: HumanEval is Python-only; this tests **real-world polyglot coding**.
+
+#### **24. OpenBookQA**  
+- **Focus**: **Knowledge + reasoning** with minimal facts.  
+- **Description**: 1,900+ questions that require combining a “fact” (e.g., “A plant needs sunlight to grow”) with inference (e.g., “What happens if a plant is kept in a dark room?”).  
+- **Human accuracy**: ~90%  
+- **Top LLMs**: ~60–70% — shows difficulty with **external knowledge integration**.
+
+#### **25. BAGEL (Benchmark for Agentic Generalization in Everyday Life)**  
+- **Focus**: **Agentic behavior** — planning, tool use, memory, reflection.  
+- **Description**: Simulates real-world tasks like:  
+  - “Plan a 3-day trip to Tokyo on a $1000 budget.”  
+  - “Book a flight, find a hotel, and send an itinerary to a friend.”  
+- **Uses**: Web search, calendar tools, email simulators.  
+- **Why it matters**: Represents the **next frontier** beyond static QA — **autonomous agents**.
+
+### 📊 Summary: What Each Benchmark Tests
+
+| Category | Key Benchmarks |
+|----------|----------------|
+| **General Knowledge** | MMLU, MMLU-Pro, C-Eval, AGIEval |
+| **Advanced Reasoning** | HLE, BBH, GSM8K, MATH, GPQA |
+| **Code Generation** | HumanEval, SWE-bench, CodeFuse-Eval |
+| **Long Context** | LongBench, L-Eval |
+| **Multimodal (Vision + Text)** | MMMU |
+| **Multilingual** | C-Eval, AGIEval |
+| **Safety & Alignment** | TruthfulQA, SafeBench |
+| **Commonsense & Physics** | HellaSwag, Winogrande, ARC, OpenBookQA |
+| **Real-World Agents** | BrowseComp, BAGEL, LiveBench |
+| **Human Preference** | Arena-Hard |
+| **Expert-Level** | GPQA, Humanity’s Last Exam |
+
+### 💡 Final Recommendation: Use a **Layered Evaluation Strategy**
+
+1. **Foundation**: MMLU + HumanEval + SWE-bench  
+2. **Reasoning Depth**: BBH + GSM8K + MATH  
+3. **Real-World Use**: BrowseComp + LiveBench + BAGEL  
+4. **Safety & Ethics**: TruthfulQA + SafeBench  
+5. **Multimodal**: MMMU  
+6. **Frontier Test**: Humanity’s Last Exam (HLE)  
+7. **Human Validation**: Arena-Hard  
+-->
+
+---
 
 # Quantization!
 
@@ -1400,14 +1648,20 @@ $qk\_1 \rightarrow$ k bit integer per weight (k is commonly 4, ) with scaling fa
 $qk\_k \rightarrow$ 
 
 ---
+layout: center
+---
 
-# Let's Get Hands-on
+# Let's ~~Get Hands-on~~ Not Today 😔
+- See the tools 
+- Run LLM on your very own system
 
 ---
 
 # The Art of Asking the Right Questions
 
-To get correct answers, you first need to know, what you want, and how to ask for it.
+To get correct answers, you first need to know, what you want, and how to ask for it. Prompting is Art, Psychology, Socialogy, AI and Engineering, of Prompting
+
+<br>
 
 <script setup>
 const promptingTips = [
@@ -1477,7 +1731,7 @@ const promptingTips = [
   },
   {
     title: '13. Pick the model with right tools and knowledge for your use-case',
-    content: 'Different models have different strengths and capabilities.'
+    content: 'Different models have different strengths and capabilities, read benchmark results, check their vibes, and pick your model wisely: don\'t use a nuclear reactor, for hammering a nail either! Don\'t send a soldier to fight an army neither!'
   },
   {
     title: '14. Good code practices like module independence',
@@ -1494,6 +1748,10 @@ const promptingTips = [
   {
     title: '17. Don\'t force it to answer first',
     content: 'If model commits to it\'s answer in the start, there is no way back.'
+  },
+  {
+    title: '18. Use your tool options, like modes, and ...',
+    content: 'If you are given the option to have different profiles, use it!'
   }
 ]
 </script>
@@ -1508,28 +1766,36 @@ transition: fade-out
 layout: center
 ---
 
-# Let's Get Hands on for Tooling!
+# To use LLMs Effectively, You Have to Learn Some Tangental Tools and Technologies
 
----
-transition: fade-out
----
+These Give You Power and Opportunity to Go Faster, in the world everyone wants to make the chatgpt powered chess engine and calculator, be the smart guy!
 
-# Random tips for developing with LLM
-
-- learn `git` better than ever!
-- LLMs have knowledge cut off! 
-- containerize everything!
-- Vector DBs
-
----
-transition: fade-out
+--- 
 layout: center
 ---
 
-# How to Run a Model Locally (Your Private LLM!)
+# Let's Take a Look at Them
 
 ---
+transition: fade-out
+---
 
+# Tangental Technologies
+
+<v-clicks>
+
+- Version control <!-- learn gitttt! -->
+- Containers!
+- Sandboxing and WASM
+- Vector DBs 
+- SLMs
+- Static Website Deployment
+- API and SaaS Solutions
+- Note taking
+- Browsers
+- OS
+
+</v-clicks>
 
 ---
 transition: fade-out
@@ -1552,24 +1818,6 @@ layout: center
 You <b>cannot</b> learn everything in the world of AI! <br> Aim for <b>strategic sips</b>. after you found what makes you excited. <br> Be <b>deep</b> in something, and follow the news in other
 </AlertBox>
 </v-clicks>
-
----
-
-# Opportunities
-
-- Organization of Agents
-- Opinionated integrations
-- LLM Routing
-- MCP Server and Other tooling markets
-- n8n-like GUI automations
-- Text-defined alternatives to slides, diagrams, ...
-- Edge Devices Deployment
-- Multi-modality 
-- Connecting the dots
-- Robotics (Nvidia)
-- Chips (Nvidia)
-- Fine-tuning for special-domains
-- New Architectures?
 
 ---
 layout: center
@@ -1617,7 +1865,7 @@ const aiExperts = [
   },
   {
     name: "Yannic Kilcher",
-    image: "./assets/yannic_kilcher.jpg",
+    image: "./assets/yannic.avif",
     description: "ML researcher and YouTube educator known for in-depth paper breakdowns. Former PhD from ETH Zurich, CTO of DeepJudge. Explains cutting-edge research with clarity and occasional humor.",
     platforms: [
       { type: "youtube", handle: "@YannicKilcher - Paper explanations and ML News" },
@@ -1627,7 +1875,7 @@ const aiExperts = [
   },
   {
     name: "AI Explained (Philip)",
-    image: "./assets/philip_ai_explained.jpg",
+    image: "./assets/philip.jpg",
     description: "Creator of AI Explained YouTube channel and runs AI Insiders community. Breaks down latest AI research papers, models, and benchmarks with detailed analysis.",
     platforms: [
       { type: "youtube", handle: "@aiexplained-official - Model breakdowns and analysis" },
@@ -1637,7 +1885,7 @@ const aiExperts = [
   },
   {
     name: "Lex Fridman",
-    image: "./assets/lex_fridman.jpg",
+    image: "./assets/lex.png",
     description: "Host of one of the most popular AI/tech podcasts with 4+ hour deep conversations. MIT researcher. Interviews range from AI researchers to tech leaders and philosophers.",
     platforms: [
       { type: "youtube", handle: "@lexfridman - Long-form technical interviews" },
@@ -1655,7 +1903,7 @@ const aiExperts = [
   },
   {
     name: "Ilya Sutskever",
-    image: "./assets/ilya_sutskever.jpg",
+    image: "./assets/ilya.jpg",
     description: "Co-founder and Chief Scientist of OpenAI (former), now founding Safe Superintelligence Inc. Key architect behind GPT models. Deep expertise in AI safety and AGI development.",
     platforms: [
       { type: "twitter", handle: "@ilyasut" },
@@ -1664,10 +1912,199 @@ const aiExperts = [
     ]
   },
   {
+    name: "bycloud (unknown)",
+    image: "./assets/bycloud.jpg",
+    description: "AI research YouTuber covering latest papers and breakthroughs. Runs FindMyPapers AI (semantic search for 300K+ research papers) and TheAITimeline. Known for detailed paper recaps and model comparisons.",
+    platforms: [
+      { type: "youtube", handle: "@bycloudAI - AI paper breakdowns" },
+      { type: "twitter", handle: "@bycloudai" },
+      { type: "newsletter", handle: "mail.bycloud.ai - AI papers newsletter" }
+    ]
+  },
+  {
+    name: "sentdex (Harrison Kinsley)",
+    image: "./assets/sentdex.png",
+    description: "Python programming educator with 1.3M+ subscribers. Creates tutorials going beyond basics into ML, finance, data analysis, robotics, and web development. Known for practical, project-based learning approach.",
+    platforms: [
+      { type: "youtube", handle: "@sentdex - Python and ML tutorials" },
+      { type: "website", handle: "pythonprogramming.net" },
+      { type: "twitter", handle: "@sentdex" }
+    ]
+  },
+  {
+    name: "GenAI Course (Masoud Dorrikhteh)",
+    image: "./assets/Masoud.png",
+    description: "Educational channel focused on Generative AI fundamentals and practical applications. Provides structured learning path for beginners entering the GenAI space with Persian and English content.",
+    platforms: [
+      { type: "youtube", handle: "@GenAICourse - Generative AI tutorials" },
+      { type: "specialty", handle: "Structured GenAI curriculum" },
+      { type: "focus", handle: "Beginner-friendly GenAI education" }
+    ]
+  },
+  {
+    name: "Károly Zsolnai-Fehér",
+    image: "./assets/karoly.jpg",
+    description: "Creator of 'Two Minute Papers', making cutting-edge AI research accessible to millions. PhD from TU Wien. Covers latest breakthroughs with infectious enthusiasm.",
+    platforms: [
+      { type: "youtube", handle: "@TwoMinutePapers - 'What a time to be alive!'" },
+      { type: "twitter", handle: "@twominutepapers" },
+      { type: "website", handle: "users.cg.tuwien.ac.at/zsolnai" }
+    ]
+  },
+  {
+    name: "Robert Miles",
+    image: "./assets/miles.jpg",
+    description: "AI Safety educator and researcher with 264K+ subscribers. Known for making complex AI alignment concepts accessible, covering topics like the orthogonality thesis, inner misalignment, and instrumental convergence.",
+    platforms: [
+      { type: "youtube", handle: "@RobertMilesAI - AI Safety education" },
+      { type: "twitter", handle: "@robertskmiles" },
+      { type: "appearances", handle: "Featured on Computerphile" }
+    ]
+  },
+  {
+    name: "Niels Rogge",
+    image: "./assets/niels.webp",
+    description: "ML Engineer at Hugging Face, part of the Open-Source team. Major contributor to HuggingFace Transformers library, porting state-of-the-art models and making them accessible to the community.",
+    platforms: [
+      { type: "github", handle: "nielsrogge - HuggingFace contributions" },
+      { type: "twitter", handle: "@NielsRogge" },
+      { type: "linkedin", handle: "niels-rogge" }
+    ]
+  },
+  {
+    name: "Sam Witteveen",
+    image: "./assets/sam.jpg",
+    description: "Google Developer Expert for ML with 11+ years in Deep Learning. Focuses on LLMs, Transformers, and AI Agents. Creates practical tutorials on latest AI developments and agentic systems.",
+    platforms: [
+      { type: "youtube", handle: "@samwitteveenai - LLM and Agent tutorials" },
+      { type: "twitter", handle: "@samwitteveenai" },
+      { type: "website", handle: "engineerprompt.ai" }
+    ]
+  },
+  {
+    name: "RIML Lab (Sharif University)",
+    image: "./assets/rohban.jpg",
+    description: "Robust and Interpretable Machine Learning Lab led by Prof. Mohammad Hossein Rohban at Sharif University of Technology. Publishes at top venues (NeurIPS, CVPR, ICLR, ICML, ECCV) on trustworthy ML, adversarial robustness, and anomaly detection.",
+    platforms: [
+      { type: "youtube", handle: "RIML Lab - Research presentations" },
+      { type: "website", handle: "riml-lab.ir" },
+      { type: "github", handle: "rohban-lab" }
+    ]
+  },
+  {
+    name: "Strange Loop Conference",
+    image: "./assets/strangeloop.jpg",
+    description: "Archive of 700+ talks from Strange Loop conference (2009-2023), the influential 'big tent' conference covering functional programming, distributed systems, language design, and emerging technologies. Features speakers like Julia Evans, Alex Miller, and industry pioneers.",
+    platforms: [
+      { type: "youtube", handle: "@StrangeLoopConf - 86K+ subs, 718 videos" },
+      { type: "archive", handle: "Conference concluded 2023 - full archive available" },
+      { type: "specialty", handle: "FP, systems, language design, emerging tech" }
+    ]
+  },
+  {
+    name: "Developer Voices (Kris Jenkins)",
+    image: "./assets/kris.jpg",
+    description: "Deep-dive technical podcast with 60-90 minute conversations exploring cutting-edge software architecture, programming languages, and developer tools. Thoughtful, in-depth interviews helping developers understand tomorrow's computing landscape.",
+    platforms: [
+      { type: "youtube", handle: "@DeveloperVoices - Technical interviews" },
+      { type: "podcast", handle: "Available on Apple Podcasts, Spotify" },
+      { type: "website", handle: "developervoices.com" }
+    ]
+  },
+  {
+    name: "1littlecoder",
+    image: "./assets/1littlecoder.jpg",
+    description: "AI tools and generative AI educator. Creates tutorials on practical AI applications, using AI for creative work, and emerging AI tools. Known for exploring how AI can enhance creative writing and knowledge work.",
+    platforms: [
+      { type: "youtube", handle: "@1littlecoder - AI tools and creative AI" },
+      { type: "twitter", handle: "@1littlecoder" },
+      { type: "ko-fi", handle: "ko-fi.com/1littlecoder" }
+    ]
+  },
+  {
+    name: "Sequoia Capital",
+    image: "./assets/sequoia_capital.jpg",
+    description: "Legendary Silicon Valley VC with 700+ startup exits. YouTube channel features conversations with AI builders, researchers, and leaders. Offers industry perspectives on AI market opportunities, startup strategies, and emerging trends.",
+    platforms: [
+      { type: "youtube", handle: "@sequoiacapital - AI market insights" },
+      { type: "podcast", handle: "Crucible Moments - Founder stories" },
+      { type: "website", handle: "sequoiacap.com - Research & insights" }
+    ]
+  },
+  {
+    name: "RibbitRibbit365",
+    image: "./assets/ribbitribbit.jpg",
+    description: "Innovative paper discovery tool using AI to generate tweet-sized summaries of arXiv papers. Personalizes paper recommendations and offers podcast format. Unique 'AI summarizing AI' approach - perfect for staying on top of research.",
+    platforms: [
+      { type: "app", handle: "iOS & Android app - Paper discovery" },
+      { type: "website", handle: "ribbitribbit.co" },
+      { type: "specialty", handle: "AI-generated paper summaries in Twitter format" }
+    ]
+  },
+  {
+    name: "3Blue1Brown (Grant Sanderson)",
+    image: "./assets/grant.png",
+    description: "Stanford math graduate creating visual, intuitive explanations of mathematics and CS concepts. The 'Neural Networks: Zero to Hero' series is one of the best visual explanations of deep learning fundamentals, covering backpropagation, gradient descent, and network architecture.",
+    platforms: [
+      { type: "youtube", handle: "@3blue1brown - Visual math & CS education" },
+      { type: "series", handle: "Neural Networks series - Essential deep learning primer" },
+      { type: "website", handle: "3blue1brown.com/lessons/neural-networks" }
+    ]
+  },
+  {
+    name: "Andrew Ng",
+    image: "./assets/andrew.jpg",
+    description: "AI pioneer who founded Google Brain, Coursera, DeepLearning.AI, and Landing AI. Leading AI researcher with 8M+ students trained. Instrumental in democratizing deep learning education. Time100 AI Most Influential People 2023.",
+    platforms: [
+      { type: "deeplearning", handle: "deeplearning.ai - AI specializations" },
+      { type: "coursera", handle: "Machine Learning specialization (3M+ students)" },
+      { type: "company", handle: "Landing AI - Computer vision for manufacturing" }
+    ]
+  },
+  {
+    name: "freeCodeCamp.org",
+    image: "./assets/freecodecamp.jpg",
+    description: "Non-profit educational YouTube channel with 8M+ subscribers. Offers hundreds of full-length courses on web development, AI/ML, MLOps, data science, and more. Known for 100% free, high-quality, comprehensive tutorials from 2 hours to 20+ hours.",
+    platforms: [
+      { type: "youtube", handle: "@freecodecamp - Free full courses" },
+      { type: "website", handle: "freecodecamp.org - 1000+ articles" },
+      { type: "specialty", handle: "ML fundamentals, GenAI, MLOps pipelines" }
+    ]
+  },
+  {
+    name: "AI Coffee Break with Letitia",
+    image: "./assets/letitia.jpg",
+    description: "ML researcher with PhD providing lighthearted, bite-sized explanations of recent AI papers and technical advancements. 290K+ subscribers. Makes complex ML concepts accessible with her assistant Ms. Coffee Bean.",
+    platforms: [
+      { type: "youtube", handle: "@AICoffeeBreak - Paper explanations" },
+      { type: "twitter", handle: "@AICoffeeBreak" },
+      { type: "website", handle: "aicoffeebreak.com" }
+    ]
+  },
+  {
+    name: "Pourya Kordi",
+    image: "./assets/pouya.jpeg",
+    description: "AI and tech YouTuber with 15.5K subscribers covering latest AI breakthroughs, DeepSeek, AGI discussions, and YouTube strategy. Provides rapid coverage of emerging AI developments and model comparisons.",
+    platforms: [
+      { type: "youtube", handle: "@Pourya_Kordi - AI news & analysis" },
+      { type: "focus", handle: "What's New in AI playlist" }
+    ]
+  },
+  {
+    name: "COLM Conference",
+    image: "./assets/colm.png",
+    description: "Conference on Language Modeling - specialized single-track conference focused exclusively on language modeling research. High talent density with smaller scale (vs megaconferences). Archive includes talks on LLM scaling, training methods, and language model evaluation.",
+    platforms: [
+      { type: "youtube", handle: "@colm_conf - Conference talks" },
+      { type: "website", handle: "colmweb.org" },
+      { type: "event", handle: "Annual conference (2024 at University of Pennsylvania)" }
+    ]
+  },
+  {
     name: "AI Research Organizations",
     description: "Follow official blogs and publications from leading AI labs.",
     platforms: [
-      { type: "blog", handle: "OpenAI, Anthropic, Google DeepMind, Meta AI, Hugging Face" }
+      { type: "blog", handle: "OpenAI, Anthropic, Google DeepMind, Qwem, Kimi, Deepseek, Meta AI, Hugging Face, ..." }
     ]
   },
   {
@@ -1695,48 +2132,18 @@ const aiExperts = [
     name: "AI Communities",
     description: "Join discussions with other AI enthusiasts and professionals.",
     platforms: [
-      { type: "website", handle: "Hugging Face forums, Reddit (r/LocalLLaMA, r/MachineLearning), Discord servers" }
+      { type: "website", handle: "Hugging Face forums, Reddit (r/LocalLLaMA, r/MachineLearning)" }
     ]
   },
   {
     name: "Hands-on Experience",
     description: "The best way to learn is by doing. Pick a model, try to build something small.",
     platforms: [
-      { type: "github", handle: "Try open-source models and tools" }
+      { type: "github", handle: "Try open-source models and tools, karpathy repos are a great place to start: karpathy/nanochat - karpathy/nanoGPT - karpathy/micrograd - karpathy/minbpe - karpathy/makemore" }
     ]
   }
 ]
 </script>
-
----
-
-**How to "Learn" More & Stay Updated:**
-<v-clicks>
-
-- **Read Blog Posts:** OpenAI, Anthropic, Google AI blogs. AI Snake Oil by Arvind Narayanan & Sayash Kapoor for critical perspectives.
-- **Key Papers on arXiv:** Look for highly cited / trending papers in `cs.CL` (Computation and Language), `cs.AI`, `cs.LG` (Machine Learning).
-- **Newsletters:** AI Alignment Newsletter, The Batch, Last Week in AI.
-- **Communities:** Hugging Face forums, Reddit (r/LocalLLaMA, r/MachineLearning), Discord servers.
-- **Experiment!** The best way to learn is by doing. Pick a model, try to build something small.
-
-</v-clicks>
-
-**Future Vibe (Speculative but Grounded):**
-<v-clicks>
-
-
-- **Deeper Multimodality:** LLMs that seamlessly understand and generate across text, image, audio, video, maybe even other sensor data.
-- **Longer, More Effective Context:** Less "goldfish memory."
-- **Improved Reasoning & Reliability:** Fewer hallucinations, better step-by-step logic.
-- **More Capable Agents:** LLMs that can reliably use tools, plan, and execute complex tasks with less human hand-holding.
-- **Personalization & Specialization:** Models fine-tuned for specific domains, industries, or even individuals.
-
-</v-clicks>
-
-<!-- با همه فاجعه شدن ها هنوز خیلی خوبه-->
-
----
-
 
 ---
 
@@ -1774,7 +2181,29 @@ transition: fade-out
 
 ---
 
-# Homework :)
+# Opportunities
+
+<v-clicks>
+
+- Organization of Agents
+- Opinionated integrations
+- LLM Routing
+- MCP Server and Other tooling markets
+- n8n-like GUI automations
+- Text-defined alternatives to slides, diagrams, ...
+- Edge Devices Deployment
+- Multi-modality 
+- Connecting the dots
+- Robotics (Nvidia)
+- Chips (Nvidia)
+- Fine-tuning for special-domains
+- New Architectures?
+
+</v-clicks>
+
+---
+
+# Homework 🤗
 
 <v-clicks>
 
@@ -1782,6 +2211,8 @@ transition: fade-out
 2.  **Experiment with Prompt Engineering:** Take a task you do regularly (writing an email, summarizing text, generating code snippets) and try to get an LLM (local or cloud) to do it via careful prompting. Iterate at least 5 times on your prompt.
 3.  **Explore one LLM-powered tool:** If you code, try Cursor or GitHub Copilot for a week. If you research, try Perplexity.
 4.  **Read one "intro to RAG" article or watch a short video.** Understand the basic concept.
+5.  **Check this slides again from the URL provided.** Alot of the notes for myself are in the code, and many items can't be appreciated in a fast paced presentation.
+6. **Roam the HuggingFace**
 
 </v-clicks>
 
